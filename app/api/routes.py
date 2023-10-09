@@ -8,14 +8,14 @@ api = Blueprint('api',__name__, url_prefix='/api')
 @api.route('/wines', methods = ['POST'])
 @token_required
 def create_wine(current_user_token):
-    type_ = request.json['type_']
+    type = request.json['type']
     brand = request.json['brand']
     color = request.json['color']
     alcohol_percentage = request.json['alcohol_percentage']
     upc = request.json['upc']
     user_token = current_user_token.token
 
-    wine = Wine(upc, type_, brand, color, alcohol_percentage, user_token = user_token )
+    wine = Wine(upc, type, brand, color, alcohol_percentage, user_token = user_token )
 
     db.session.add(wine)
     db.session.commit()
@@ -43,7 +43,7 @@ def get_single_wine(current_user_token, upc):
 def update_wine(current_user_token,upc):
     wine = Wine.query.get(upc) 
     wine.upc = request.json['upc']
-    wine.type_ = request.json['type_']
+    wine.type = request.json['type']
     wine.brand = request.json['brand']
     wine.color = request.json['color']
     wine.alcohol_percentage = request.json['alcohol_percentage']
