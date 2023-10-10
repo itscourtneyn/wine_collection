@@ -32,7 +32,7 @@ def upgrade():
     )
     op.create_table('wine',
     sa.Column('upc', sa.String(), nullable=False),
-    sa.Column('type_', sa.String(length=200), nullable=True),
+    sa.Column('type', sa.String(length=200), nullable=True),
     sa.Column('brand', sa.String(length=200), nullable=True),
     sa.Column('color', sa.String(length=200), nullable=True),
     sa.Column('alcohol_percentage', sa.String(length=200), nullable=True),
