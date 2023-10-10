@@ -56,9 +56,9 @@ class Wine(db.Model):
     alcohol_percentage = db.Column(db.String(200))
     user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable = False)
 
-    def __init__(self,upc,type_,brand,color, alcohol_percentage, user_token):
+    def __init__(self,upc,type,brand,color, alcohol_percentage, user_token):
         self.upc = upc
-        self.type = type_
+        self.type = type
         self.brand = brand
         self.color = color
         self.alcohol_percentage = alcohol_percentage
