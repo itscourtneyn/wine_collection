@@ -50,7 +50,7 @@ class User(db.Model, UserMixin):
 
 class Wine(db.Model):
     upc = db.Column(db.String, primary_key = True)
-    type_ = db.Column(db.String(200))
+    type = db.Column(db.String(200))
     brand = db.Column(db.String(200))
     color = db.Column(db.String(200))
     alcohol_percentage = db.Column(db.String(200))
@@ -58,7 +58,7 @@ class Wine(db.Model):
 
     def __init__(self,upc,type_,brand,color, alcohol_percentage, user_token):
         self.upc = upc
-        self.type_ = type_
+        self.type = type_
         self.brand = brand
         self.color = color
         self.alcohol_percentage = alcohol_percentage
@@ -73,7 +73,7 @@ class Wine(db.Model):
 
 class WineSchema(ma.Schema):
     class Meta:
-        fields = ['upc', 'type_','brand','color', 'alcohol_percentage']
+        fields = ['upc', 'type','brand','color', 'alcohol_percentage']
 
 wine_schema = WineSchema()
 wines_schema = WineSchema(many=True)
